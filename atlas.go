@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"strings"
 	"sync"
 	"time"
 
@@ -100,7 +101,7 @@ func (m *Atlas) CreateUser(ctx context.Context, statements dbplugin.Statements, 
 		return "", "", dbutil.ErrEmptyCreationStatement
 	}
 
-	username, err = m.GenerateUsername(usernameConfig)
+	username, err = strings.Replace(m.GenerateUsername(usernameConfig), "@", "", -1)
 	if err != nil {
 		return "", "", err
 	}
