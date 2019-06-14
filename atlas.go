@@ -5,10 +5,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"strings"
 	"sync"
 	"time"
-
+	"strings"
 	"github.com/hashicorp/vault/api"
 	"github.com/hashicorp/vault/sdk/database/dbplugin"
 	"github.com/hashicorp/vault/sdk/database/helper/credsutil"
@@ -58,9 +57,9 @@ func new() *Atlas {
 	connProducer.Type = atlasTypeName
 
 	credsProducer := &credsutil.SQLCredentialsProducer{
-		DisplayNameLen: 15,
+		DisplayNameLen: 4,
 		RoleNameLen:    15,
-		UsernameLen:    100,
+		UsernameLen:    50,
 		Separator:      "-",
 	}
 
@@ -101,10 +100,12 @@ func (m *Atlas) CreateUser(ctx context.Context, statements dbplugin.Statements, 
 		return "", "", dbutil.ErrEmptyCreationStatement
 	}
 
-	username, err = strings.Replace(m.GenerateUsername(usernameConfig), "@", "", -1)
+	username, err = m.GenerateUsername(usernameConfig)
 	if err != nil {
 		return "", "", err
 	}
+
+	newuser := strings.Replace(strings.Replace(username, "@", "", -1), ".", "", -1)
 
 	password, err = m.GeneratePassword()
 	if err != nil {
@@ -138,11 +139,11 @@ func (m *Atlas) CreateUser(ctx context.Context, statements dbplugin.Statements, 
 		roles = append(roles, atlasRole)
 	}
 
-	err = createAtlasUser(m.GroupID, m.APIId, m.APIKey, username, password, mongoCS.DB, roles)
+	err = createAtlasUser(m.GroupID, m.APIId, m.APIKey, newuser, password, mongoCS.DB, roles)
 	if err != nil {
 		return "", "", err
 	}
-	return username, password, nil
+	return newuser, password, nil
 }
 
 //RenewUser function
