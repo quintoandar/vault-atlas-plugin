@@ -7,12 +7,12 @@ import (
 	"fmt"
 	"sync"
 	"time"
-	"strings"
 	"github.com/hashicorp/vault/api"
 	"github.com/hashicorp/vault/sdk/database/dbplugin"
 	"github.com/hashicorp/vault/sdk/database/helper/credsutil"
 	"github.com/hashicorp/vault/sdk/database/helper/dbutil"
 	"github.com/mitchellh/mapstructure"
+	"encoding/base64"
 )
 
 type atlasConnectionProducer struct {
@@ -57,9 +57,9 @@ func new() *Atlas {
 	connProducer.Type = atlasTypeName
 
 	credsProducer := &credsutil.SQLCredentialsProducer{
-		DisplayNameLen: 4,
+		DisplayNameLen: 15,
 		RoleNameLen:    15,
-		UsernameLen:    50,
+		UsernameLen:    64,
 		Separator:      "-",
 	}
 
@@ -105,7 +105,7 @@ func (m *Atlas) CreateUser(ctx context.Context, statements dbplugin.Statements, 
 		return "", "", err
 	}
 
-	newuser := strings.Replace(strings.Replace(username, "@", "", -1), ".", "", -1)
+	newuser := base64.RawURLEncoding.EncodeToString([]byte(username))
 
 	password, err = m.GeneratePassword()
 	if err != nil {

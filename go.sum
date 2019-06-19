@@ -4,6 +4,8 @@ github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da h1:8GUt8eRujhVEGZ
 github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da/go.mod h1:Q73ZrmVTwzkszR9V5SSuryQ31EELlFMUz1kKyl939pY=
 github.com/armon/go-radix v0.0.0-20180808171621-7fddfc383310/go.mod h1:ufUuZ+zHj4x4TnLV4JWEpy2hxWSpsRywHrMgIH9cCH8=
 github.com/bgentry/speakeasy v0.1.0/go.mod h1:+zsyZBPWlz7T6j88CTgSN5bM796AkVf0kBD4zp0CCIs=
+github.com/catinello/base62 v0.0.0-20160325105823-e0daaeb631c9 h1:Wwb8B2cNpapZu1JAunAxwn59RaxUOsIoGY9vNCraF14=
+github.com/catinello/base62 v0.0.0-20160325105823-e0daaeb631c9/go.mod h1:5LcXhHD4xsYgujv9TLgV4rIhOxGqBJgpdUG42MHSKaQ=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
@@ -63,6 +65,8 @@ github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d h1:kJCB4vdITiW1eC1
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
 github.com/kisielk/errcheck v1.1.0/go.mod h1:EZBBE59ingxPouuu3KfxchcWSUPOHkagtvWXihfKN4Q=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
+github.com/lytics/base62 v0.0.0-20180808010106-0ee4de5a5d6d h1:HONlVR8gkr5QibYNVFtj8ajfqRAKt21DmdzeZXZl6VQ=
+github.com/lytics/base62 v0.0.0-20180808010106-0ee4de5a5d6d/go.mod h1:nFZ1y9JiUDciefRL0X6OTobqQGgFCR+lbnn1lWsoQk0=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=
 github.com/mattn/go-isatty v0.0.3/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
 github.com/mealal/vault-atlas-plugin v0.0.0-20190607145130-7d4b2e0084fa h1:Gs1sIw1swHh9ZQR2kG+c3LieFP9PgAKE/ET/EtcFKyc=
