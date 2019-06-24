@@ -5,7 +5,7 @@ import (
 	"os"
 
 	api "github.com/hashicorp/vault/api"
-	atlas "github.com/mealal/vault-atlas-plugin"
+	atlas "github.com/quintoandar/vault-atlas-plugin"
 )
 
 func main() {
